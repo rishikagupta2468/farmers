@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Farming</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	<!--<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/show_cat.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+
+<% include ../partials/header %>
+<body style="background-color: #FDC97C;">
+<div class="show_question">
+<div class="ui main text container segment " style="margin-top:60px;width:70em">
+    <div class="ui huge header" style="font-size:20px"><%= questions.name %></div>
+    <div class="ui top attached ">
+        <div class="item">
+           <img class="ui centered round image" id="ques-img"src="<%= questions.image %>">
+        </div>
+         <div class="content" id="content">
+            <span><strong><%= questions.created.toDateString() %></strong></span>
+        </div>
+        <div>
+             <hr>        
+        </div>
+        <div class="description">
+            <p><%= questions.description %></p>
+            <p>
+                <em>Submitted by:<a href="/profile"><%= questions.author.username %></a></em>
+            </p>
+        </div>
+        <% if(currentUser && questions.author.id.equals(currentUser._id)){ %>
+            <a class ="ui green button" href="/questions/<%= questions._id%>/edit">Edit question</a>
+            <form id="delete-form-exp" action="/questions/<%= questions._id %>?_method=DELETE" method="POST">
+                <button class="ui red button">Delete</button>
+            </form>
+        <% } %>
+    </div>
+</div>
+
+    <div class="ui raised main text container segment" style="width:70em">
+        <div>
+            <h3 style="margin-bottom:50px"><i class="reply all icon"></i>All suggestions</h3>
+        </div>
+        <div class ="ui comments" style="margin:40px">
+            <div class="solutions">
+                 <% questions.solutions.forEach(function (solution){  %>
+                 <div class="content">
+                     <p>
+                        <div class="author">
+                            <strong><%= solution.author.username %></strong>
+                        </div>
+                        <div class="text">
+                              <%= solution.text%>
+                               <div class="float-right">
+                                   <% if(currentUser && solution.author.id.equals(currentUser._id)){ %>
+                                     <a class="ui blue inverted button mini"  href="/solutions/<%= solution._id%>/edit">
+                                       Edit
+                                     </a> 
+                                     <form id="delete-form-exp" action="/questions/<%= questions._id %>/solutions/<%= solution._id %>?_method=DELETE" method="POST">
+                                         <input  type="submit" class="ui red inverted button mini" value="Delete">
+                                     </form>
+                                    <% } %>
+                               </div>
+                              
+                        </div>
+                     </p>
+                     <hr>
+                 </div>
+                 <% }) %>
+            </div>
+        </div>
+    </div>
+        <div class="ui main text container segment" style="width:70em;">
+             <form    action="/questions/<%= questions._id %>/solutions/" method="POST" class="ui reply form">
+                    <div class="field">
+                      <textarea name="solution[text]" placeholder="Write Answer Here..." id="add-sol"></textarea>
+                    </div>
+                    <div>
+                    <button class="ui primary button">
+                      <i class="icon edit "></i>
+                      Add Reply
+                    </button>
+                    </div>
+             </form>
+        </div>
+</div>
+</div>
+
+<% include ../partials/footer %>

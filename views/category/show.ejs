@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Farming</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	<!--<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/show_cat.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+
+<% include ../partials/header %>
+<body style="background:#FDC97C;">
+    <div class="totalcontainer"> 
+<div class="laya-please layer-1">
+    </div>
+    <div class="laya-please layer-2">
+    </div>
+    <div class="container1_cat">
+        <div class="laya-please layer-3">
+        </div>
+        <div class="laya-please layer-4">
+        </div>
+        <div class="laya-please layer-5">
+        </div>
+        <div class="laya-please layer-6">
+        </div>
+    </div>
+    <div class="container2_cat">
+        <div class="laya-please layer-7">
+        </div>
+        <div class="laya-please layer-8">
+        </div>
+        <h1 class="display-4" style="font-size:3em;text-align:center;padding-top:100px;text-shadow: 1px 1px 3px #696969, 1px 1px 5px #808080, 1px 1px 7px #A9A9A9;"><%=category.name%></h1>
+    </div>
+</div>
+<div style="background-color: #FDC97C;">
+<div class="container" style="margin-top:20px;">
+            <% category.questions.forEach(function(questions){ %>
+                <div class="ui main text segment">
+                <div class="ui items">
+                  <div class="item">
+                    <a class="ui small image">
+                     <img src="<%= questions.image %>" style="width:100%;height:8em">
+                    </a>
+                    <div class="content">
+                        <a class="header" href="/questions/<%= questions._id %>/solutions"><%= questions.name %></a>
+                        <div class="description">
+                            <p><%= questions.description.substring(0,200) %>...</p>
+                        </div>
+                        <div class="extra">
+                            <div class="ui right floated button" style="background-color:grey">
+                                <a href="/questions/<%= questions._id %>/solutions" class="button_ques"><span class="s">More info..</span></a>
+                            </div>
+                            <!--DELETE OPTION-->
+                        </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>         
+            <% }) %>
+</div>
+</div>
+<% include ../partials/footer %>

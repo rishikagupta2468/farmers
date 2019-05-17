@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html style="height:inherit;">
+<head>
+	<title>	Farming</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	<!--<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/show_cat.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+
+<% include ../partials/header%>
+<body style="height:auto;background-color:rgb(248, 251, 193)">
+<div class="show-exp"  style="margin-top:55px;">
+<div class="ui main text container segment">
+                <div class="ui huge header" style="font-size:20px; text-align:center;"><%=exp.title%></div>
+                    <div class="ui top attached">
+                        <div class="item">
+                             <img class="ui centered rounded image" style="width:500px;height:300px" src="<%=exp.image%>">
+                             <div class="content" style="margin-top:10px">
+                                <span><em>Submitted By <%= exp.author.username %></em></span>
+                                <div class="description">
+                                    <p><%=exp.description %></p>
+                                </div>
+                             </div>
+                             <br>
+                        </div>
+                        <div class="float-right">
+                        <% if(currentUser && exp.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-xs btn-warning" href="/experience/<%=exp._id %>/edit">Edit</a>
+                             <form id="delete-form-exp" action="/experience/<%=exp._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-xs btn-danger">Delete</button>
+                             </form>
+                        <% } %>
+                        </div>
+                    </div>
+                    <div id="upvotes">
+                                <!-- LikeBtn.com BEGIN -->
+                                <div class="likebtn-wrapper" data-identifier="item_1"></div>
+                                <script>(function(d,e,s)
+                                {
+                                    if(d.getElementById("likebtn_wjs"))
+                                    return;
+                                    a=d.createElement(e);
+                                    m=d.getElementsByTagName(e)[0];
+                                    a.async=1;
+                                    a.id="likebtn_wjs";
+                                    a.src=s;
+                                    m.parentNode.insertBefore(a, m)
+                                })(document,"script","//w.likebtn.com/js/w/widget.js");
+                                </script>
+                                <!-- LikeBtn.com END -->
+                            </div>
+</div>
+</div>
+<% include ../partials/footer %>

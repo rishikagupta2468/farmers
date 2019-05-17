@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Farming</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/profile.css">
+<% include ./partials/header%>
+
+<div class="container outer">
+    <div class="jumbotron">
+        <p><b>Name: </b><%= currentUser.name %></p>
+        <p><b>Email Id: </b><%= currentUser.username %></p>
+    </div>
+    <div class="row main-row">
+        <div class="col-12 col-lg-6 ques-container">
+            <div class="row ques-heading">
+                <h2>YOUR QUESTIONS</h2>
+            </div>
+            <% questions.forEach(function(question){ %>
+                <% if(question.author.id.equals(currentUser._id)){ %>
+                    <div class="row row1">
+                         <div class="card border-dark ">
+						  <div class="card-body text-dark">
+						    <p class="card-text"><b><%= question.name%></b></p>
+						    <p class="card-text" style="font-size:14px;"><%= question.description.substring(0,100)%>...</p>
+						  </div>
+						  <div class="card-footer bg-transparent border-dark"><a href="/questions/<%=question._id%>/solutions" class="btn btn-primary read">Read more...</a></div>
+						</div>
+                    </div>
+                <% } %>
+            <% }); %>
+        </div>
+        <div class="col-12 col-lg-6 exp-container">
+            <div class="row exp-heading">
+                <h2>YOUR EXPERIENCES</h2>
+            </div>
+            <% experiences.forEach(function(exp){ %>
+                <% if(exp.author.id.equals(currentUser._id)){ %>
+                    <div class="row row1">
+                        <div class="col-4 column">
+                            <img src="<%= exp.image %>" class="exp-img">
+                        </div>
+                        <div class="col-8 column">
+                            <div class="card border-dark">
+    						  <div class="card-body text-dark row">
+    						    <p class="card-text"><b><%= exp.title.substring(0,100)%></b>...</p>
+    						    <p class="card-text" style="font-size:13px;"><%= exp.description.substring(0,100)%>...</p>
+    						  </div>
+    						  <div class="card-footer bg-transparent border-dark"><a href="/experience/<%=exp._id%>" class="btn btn-primary read">Read more...</a></div>
+    						</div>
+                        </div>
+                    </div>
+                <% } %>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer%>

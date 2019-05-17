@@ -1,0 +1,85 @@
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/navbar.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/header.css">
+	
+</head>
+<body>
+	<!-- START-NAVBAR -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div id="mySidebar" class="sidebar">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <h2 style="color:white; padding-left:30px">Select Category</h2>
+			  <a href="/category/Crop-Protection">Crop Protection</a>
+			  <a href="/category/Irrigation">Irrigation</a>
+			  <a href="/category/Seeds">Seeds</a>
+			  <a href="/category/Climate">Climate</a>
+			  <a href="/category/Land-Soil">Land/Soil</a>
+			  <a href="/allques">All Questions</a>
+			  <a href="/experience" style="color:white; padding-left:30px">View All Experiences</a>
+	  </div>
+	  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<li class="nav-item" id="main">
+			<span id="main">
+			  <button class="openbtn" onclick="openNav()">&#9776;</button> 
+            </span>
+	      </li>
+	    </ul>
+	  <a class="navbar-brand" href="/">Farmer</a>
+
+	  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	      <li class="nav-item">
+	        <a class="nav-link" href="/">Home</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/question/new">Ask Question</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/experience/new">Share Experience</a>
+	      </li>
+	         <form action="/questions/search" method="GET" class="form-inline">
+                 <div class="form-group">
+                     <input type="text" name="search" placeholder="search..."class="form-control" > 
+                     <span class="content1"><input type="submit" value="Search" class="btn btn-success btn-md"></span>
+                 </div>
+             </form>
+	      <li class="nav-item">
+      		<div id="google_translate_element"></div>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<script type="text/javascript">
+				function googleTranslateElementInit() {
+				  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+				}
+			</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" ></script>
+    	  </li>
+	    </ul>
+	    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+	    	<% if(!currentUser){ %>
+                <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="/register" class="nav-link">Sign Up</a></li>
+            <% } else { %>
+            	<li class="nav-item"><a href="/profile" class="nav-link"><i class="fas fa-user"> <%=currentUser.name%></i></a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+            <% } %>
+	    </ul>
+	  </div>
+	</nav>
+	<!-- END-NAVBAR -->
+
+	<div class="container main">
+       <%  if(error && error.length> 0 ){ %>
+          <div class="alert alert-danger"  role="alert">
+            <%= error %>
+          </div>
+       <% } %>
+       <%  if(success && success.length > 0){ %>
+          <div class="alert alert-success"  role="alert">
+            <%= success %>
+          </div>
+       <% } %>      
+   </div>

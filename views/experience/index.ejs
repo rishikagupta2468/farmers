@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Farming</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	<!--<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/show_cat.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+
+<% include ../partials/header %> 
+<body style="background-color:rgb(248, 251, 193)">
+<div>
+<div class="container-fluid temp" style="width:90%;display:center;padding:5px;margin-top:40px">
+    <div class="bird-container bird-container--one">
+		<div class="bird bird--one"></div>
+	</div>
+	
+	<div class="bird-container bird-container--two">
+		<div class="bird bird--two"></div>
+	</div>
+	
+	<div class="bird-container bird-container--three">
+		<div class="bird bird--three"></div>
+	</div>
+	
+	<div class="bird-container bird-container--four">
+		<div class="bird bird--four"></div>
+	</div>
+         <div class="container" style="padding:30px;margin-top:30px; padding-bottom:10px">
+             <h1 style="font-size:60px">Experiences</h1>
+             <p>
+                <a class="btn btn-success btn-large" style="font-size:15px;" href="/experience/new"><i class="leaf icon"></i>Add New Experience</a>
+             </p>
+         </div>
+</div>
+<div class="container-fluid" style="width:90%;display:center;padding:5px;margin-top:40px">
+    <!--<div class="row">-->
+    <!--    <div class="col-md-10 col-sm-9 col-8">-->
+            <div class="row">
+                <%experience.forEach(function(exp){%>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                    <br>
+                    <div class="card zoom" style="height:30em">
+                        <img src="<%=exp.image%>" class="card-img-top resize" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=exp.title.substring(0,100)%>...</h5>
+                            <p class="card-text"><%=exp.description.substring(0,100)%>...</p>
+                            <p class="card-text"><%=exp.author.username%></p>
+                            <a href="/experience/<%=exp._id%>" class="btn btn-success">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <% });%>
+            </div>
+        </div>
+        <!--<div class="col-md-2 col-sm-3 col-4 d-none d-lg-block" style="border-left:1px solil black">-->
+        <!--    <table class="table table-hover border border-success" style="margin-top:20px;">-->
+        <!--        <thead>-->
+        <!--            <th class="col bg-success"><h3>Quick links</h3></th>-->
+        <!--        </thead>-->
+        <!--        <tbody style="color:white">-->
+        <!--            <tr><td><a type="button" class="btn btn-success d-block button" href="https://soilhealth.dac.gov.in/"><span class="s">Soil Health Card Scheme</span></a></td></tr>-->
+        <!--            <tr><td><a type="button" class="btn btn-success d-block button" href="https://nmsa.dac.gov.in/"><span class="s">National Mission for Sustainable Agriculture</span></a></td></tr>-->
+        <!--            <tr><td><a type="button" class="btn btn-success d-block button" href="https://pmksy.gov.in/"><span class="s">Pradhan Mantri Krishi Sinchai Yojana</span></a></td></tr>-->
+        <!--            <tr><td><a type="button" class="btn btn-success d-block button" href="https://pgsindia-ncof.gov.in/pkvy/index.aspx"><span class="s">Paramparagat Krishi Vikas Yojana</span></a></td></tr>-->
+        <!--            <tr><td><a type="button" class="btn btn-success d-block button" href="https://www.enam.gov.in/"><span class="s">National Agriculture Market</span></a></td></tr>-->
+        <!--            <tr><td><a type="button" class="btn btn-success d-block button" href="https://pmksy.gov.in/"><span class="s">Micro Irrigation Fund</span></a></td></tr>-->
+        <!--        </tbody>-->
+        <!--    </table>-->
+        <!--</div>-->
+    </div>
+</div>
+</div>
+<% include ../partials/footer %>

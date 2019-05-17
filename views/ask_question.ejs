@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Farming</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	<!--<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/show_cat.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+
+<% include ./partials/header%>
+<body class="share">
+<!--<div class="container-fluid ask_ques"style="padding:50px">-->
+<!--        <div style="padding-top:3em">-->
+<!--            <h1 style="text-align:center;color:white;font-size:60px;text-shadow: 3px 3px grey">Ask Question</h1>-->
+<!--        </div>-->
+<!--        <div style="width: 40%; margin: 50px auto;border:0.5px solid white;padding:30px">-->
+        
+<div class="container">
+    <div class="row">
+        <div class="col-10 col-lg-5" style="margin: 25px auto;">
+            <h1 style="text-align:center;color:white;font-size:40px;text-shadow: 3px 3px grey; padding-top:120px;" class="title">Ask  Question</h1>
+            <div style="margin: 25px auto;">
+
+                <form action="/question" method="POST">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="questions[name]" placeholder="Enter Question">
+                    </div>
+                    <div class="form-group">
+                        <select name="category" class="form-control">
+                          <option value="Others">Select-Category</option>
+                          <option value="Crop-Protection">Crop Protection</option>
+                          <option value="Irrigation">Irrigation</option>
+                          <option value="Seeds">Seeds</option>
+                          <option value="Climate">Climate</option>
+                          <option value="Land-Soil">Land/Soil</option>
+                          <option value="Others">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" type="text" name="questions[description]" placeholder="Description(Optional)"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="questions[image]" placeholder="Image Url (Optional)">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                    </div>
+                </form>
+                <a href="/" class="font-weight-bold" style="font-size:15px;text-shadow: 1px 1px black">Go Back</a>
+        </div>
+        </div>
+        </div>
+</div>
+<% include ./partials/footer%>

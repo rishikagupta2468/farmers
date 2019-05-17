@@ -1,0 +1,89 @@
+body{
+    /*background:url(https://source.unsplash.com/2kIf1lz9wpc);*/
+    /*background:url(https://source.unsplash.com/wd5JNpAl3Ts);*/
+    /*background:url(https://source.unsplash.com/AlEyuIKuSmc);*/
+    background-size:cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+.outer{
+    padding-left: 0;
+    padding-right: 0;
+}
+.jumbotron{
+    margin-top: 80px;
+    /*background:url(https://source.unsplash.com/AlEyuIKuSmc);*/
+    /*background:url(https://source.unsplash.com/4psNpOezGzQ);*/
+    /*background:url(https://source.unsplash.com/Xppa5WzT2mM);*/
+    background:url(https://source.unsplash.com/OWq8w3BYMFY);
+    background-size:400% 600% ;
+    /*height: 600px: */
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    font-size: 25px;
+}
+
+.row{
+    width: inherit;
+    margin: 0;
+    padding-bottom: 0;
+}
+.row1{
+    border:2px solid #C3C0C0;
+    margin: 5px;
+    border-radius: 5px;
+}
+.main-row{
+    /*background:url(https://source.unsplash.com/AlEyuIKuSmc);*/
+    /*background-image: radial-gradient(circle, #d7dde7, #c5d6eb, #aed0ef, #93caf2, #70c5f4);*/
+    background-image: radial-gradient(circle, #d7dde7, #c0e3f6, #9fecf5, #8ff2df, #a2f4b7);
+    background-size:cover;
+    background-position: center;
+    border-radius: 5px;
+}
+.exp-container .card{
+    height: 240px;
+    border:none;
+}
+.card{
+    border:none;
+    width: inherit;
+    margin: 0;
+}
+.card-body{
+    padding: 0.6rem;
+}
+.card-footer{
+    border-top:none; 
+    padding: 0.2rem 0.6rem;
+    padding-bottom: 0.4rem;
+}
+.column{
+    padding: 0;
+}
+.row .exp-heading h2{
+    text-align: center;
+    margin: auto;
+}
+.row .ques-heading h2{
+    text-align: center;
+    margin: auto;
+}
+
+.exp-heading, .ques-heading{
+    padding: 20px 10px;
+    text-shadow: 1px 1px 3px #696969, 1px 1px 5px #808080, 1px 1px 8px #A9A9A9;
+}
+
+.read{
+    padding: .250rem 0.5rem;
+    font-size: 0.7rem;
+}
+p{
+    margin-bottom:0;
+}
+.exp-img{
+    width: inherit;
+    height: 240px;
+}
