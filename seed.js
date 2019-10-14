@@ -1,3 +1,4 @@
+//start
 var mongoose = require("mongoose");
 var Category1 = require("./models/category1");
 var Questions   = require("./models/questions");
@@ -79,3 +80,4 @@ function seedDB(){
 }
  
 module.exports = seedDB;
+//end
